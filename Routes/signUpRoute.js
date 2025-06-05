@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-const { User, Account } = require('../db'); // Make sure both are destructured
+const { User, Account } = require('../db'); 
 const { validateSchema } = require('../middleware/checkAuth');
 
 const secretKey = process.env.JWT_SECRET || "yourfavgirl";
