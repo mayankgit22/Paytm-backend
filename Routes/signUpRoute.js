@@ -23,7 +23,13 @@ router.post('/', validateSchema, async (req, res) => {
 
         const token = jwt.sign({ id: user._id }, secretKey);
 
-        res.cookie('token',token);
+      res.cookie('token', token, {
+  httpOnly: true,
+  secure: true,         // 🔒 required for cross-origin
+  sameSite: 'None',     // 🧭 required for cross-origin
+  maxAge: 24 * 60 * 60 * 1000  // 1 day (optional, but good to have)
+});
+
         return res.status(201).json({
             message: 'User created successfully',
             user: {
