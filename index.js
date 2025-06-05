@@ -14,9 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const cookieParser = require('cookie-parser');
 const indexRouter = require("./Routes/index");
 app.use(cookieParser());
-app.get("/", (req, res) => {
-  res.send("Backend is running ✅");
-});
+
 
 app.use('/', indexRouter);
 app.listen((port), () => {
