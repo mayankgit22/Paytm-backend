@@ -6,11 +6,13 @@ const signInRoute = require('./signinRoute');
 const updateRoute = require('./updateRoute');
 const accountRouter=require('./accountRoute');
 const allusers= require('./allUsers');
+const logoutRoute=require('./logout')
 // const transferFund = require('./transferFund');
 router.use('/user/signup', signUpRoute);
 router.use('/user/signin', signInRoute);
 router.use('/user/update', updateRoute);
 router.use('/user/bulk',bulkFind);
 router.use('/users', allusers);
+router.use('/user/logout',logoutRoute);
 router.use('/user/account', accountRouter);
 module.exports=router;
