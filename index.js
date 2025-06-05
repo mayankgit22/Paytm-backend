@@ -7,7 +7,7 @@ app.use(express.json());
 const bodyParser = require("body-parser");
 const port=process.env.PORT || 3000;
 const cors = require("cors");app.use(cors({
-  origin: 'https://paytm-frontend-beryl.vercel.app/', // your frontend's origin
+  origin: 'https://paytm-frontend-beryl.vercel.app', // your frontend's origin
   credentials: true,              // this allows cookies to be set
 }));
 app.use(bodyParser.urlencoded({ extended: true }));
