@@ -38,7 +38,7 @@ router.post('/', validateSchema, async (req, res) => {
                 email: user.email
 
             },
-            token
+            
         });
     } catch (error) {
         console.error('Error creating user at signup:', error);
