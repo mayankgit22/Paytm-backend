@@ -20,10 +20,12 @@ router.post('/', validateSchema, async (req, res) => {
         }
         const token = jwt.sign({ id: user._id }, secretKey);
 res.cookie('token', token, {
-            httpOnly: true, 
-            // secure: process.env.NODE_ENV === 'production', 
-            sameSite: 'Lax' 
-        });
+  httpOnly: true,
+  secure: true,         // 🔒 required for cross-origin
+  sameSite: 'None',     // 🧭 required for cross-origin
+  maxAge: 24 * 60 * 60 * 1000  
+});
+
         return res.status(200).json({ message: 'Signin successful', user:{
             id: user._id,
             name: user.name,
