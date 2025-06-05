@@ -18,7 +18,7 @@ const validateSchema = (req, res, next) => {
     next();
 };
 const Authservice = (req, res, next) => {
-    const token = req.cookies.token || req.headers.authorization?.split(' ')[1]; // Check for token in cookies or Authorization header
+    const token = req.cookies.token ; // Check for token in cookies or Authorization header
     if (!token) {
         return res.status(401).json({ error: 'No token provided' });
     }
